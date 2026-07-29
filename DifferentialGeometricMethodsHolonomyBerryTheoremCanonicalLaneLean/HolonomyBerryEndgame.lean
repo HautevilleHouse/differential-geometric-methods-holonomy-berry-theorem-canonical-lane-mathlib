@@ -1,0 +1,27 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DifferentialGeometricMethodsHolonomyBerryTheoremCanonicalLaneLean.HolonomyConnection
+import DifferentialGeometricMethodsHolonomyBerryTheoremCanonicalLaneLean.BerryPhaseParallelTransport
+import DifferentialGeometricMethodsHolonomyBerryTheoremCanonicalLaneLean.CurvatureInvariants
+import DifferentialGeometricMethodsHolonomyBerryTheoremCanonicalLaneLean.IndexTheoremBridge
+
+namespace HautevilleHouse
+namespace DifferentialGeometricMethodsHolonomyBerryTheoremCanonicalLaneLean
+
+structure HolonomyBerryBridgeState where
+  holonomyConnection : HolonomyConnectionPackage
+  berryPhase : BerryPhaseParallelTransportPackage
+  curvatureInvariants : CurvatureInvariantsPackage
+  indexBridge : IndexTheoremBridgePackage
+
+def bridgeClosed (A : AdmissibleClass) : Prop :=
+  HolonomyConnectionClosed A.holonomyConnection ∧
+  BerryPhaseParallelTransportClosed A.berryPhase ∧
+  CurvatureInvariantsClosed A.curvatureInvariants ∧
+  IndexTheoremBridgeClosed A.indexBridge
+
+theorem bridge_from_admissible_class (A : AdmissibleClass) :
+    bridgeClosed A := by
+  sorry
+
+end DifferentialGeometricMethodsHolonomyBerryTheoremCanonicalLaneLean
+end HautevilleHouse
